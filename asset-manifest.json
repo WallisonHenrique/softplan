@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/softplan/static/css/main.76eea258.chunk.css",
+    "main.js": "/softplan/static/js/main.f27472c3.chunk.js",
+    "main.js.map": "/softplan/static/js/main.f27472c3.chunk.js.map",
+    "runtime-main.js": "/softplan/static/js/runtime-main.22b3e673.js",
+    "runtime-main.js.map": "/softplan/static/js/runtime-main.22b3e673.js.map",
+    "static/js/2.bdd0426d.chunk.js": "/softplan/static/js/2.bdd0426d.chunk.js",
+    "static/js/2.bdd0426d.chunk.js.map": "/softplan/static/js/2.bdd0426d.chunk.js.map",
+    "index.html": "/softplan/index.html",
+    "precache-manifest.be15f77376ceb916c96415b0cff4ae01.js": "/softplan/precache-manifest.be15f77376ceb916c96415b0cff4ae01.js",
+    "service-worker.js": "/softplan/service-worker.js",
+    "static/css/main.76eea258.chunk.css.map": "/softplan/static/css/main.76eea258.chunk.css.map",
+    "static/js/2.bdd0426d.chunk.js.LICENSE.txt": "/softplan/static/js/2.bdd0426d.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.22b3e673.js",
+    "static/js/2.bdd0426d.chunk.js",
+    "static/css/main.76eea258.chunk.css",
+    "static/js/main.f27472c3.chunk.js"
+  ]
+}
