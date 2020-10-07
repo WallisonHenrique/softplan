@@ -9,10 +9,10 @@ export default function Routes () {
 	return (
 		<Router>
 			<Switch>
-				<Route path="/inicio" component={ Home } />
-				<Route path="/pais/:id" render={ ({ match }) => <Details match={ match } />} />
-				<Route path="/editar/:id" render={ routeProps => <Edit { ...routeProps } />} />
-				<Redirect to="/inicio" />
+				<Route path="/softplan" exact={true} component={ Home } />
+				<Route path="/softplan/:id" exact={true} render={ ({ match }) => <Details match={ match } />} />
+				<Route path="/softplan/editar/:id" render={ routeProps => <Edit { ...routeProps } />} />
+				<Redirect to="/softplan" />
 			</Switch>
 		</Router>
 	);

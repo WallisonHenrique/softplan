@@ -8,7 +8,7 @@ export default function Card ({ country }) {
 
 	return (
 		<Container>
-			<Link to={`/pais/${ _id }`}>
+			<Link to={`/softplan/${ _id }`}>
 				<div>
 					<Flag src={ flag.svgFile } alt={` Bandeira ${ name } `} />
 				</div>

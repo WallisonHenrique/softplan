@@ -18,7 +18,7 @@ export default function Edit ({ match, history }) {
   	if (data.Details.length === 0) {
   		return <Message>
 			Não foi encontrado. Tende novamente. <br />
-			<Link to="/inicio">Voltar</Link>
+			<Link to="/softplan">Voltar</Link>
 		</Message>
   	}
 
@@ -30,12 +30,12 @@ export default function Edit ({ match, history }) {
   		});
 
   		contriesItemsVar([ ...newList ]);
-  		history.push("/inicio");
+  		history.push("/softplan");
   	};
 	
 	return (
 		<>
-			<Link to="/inicio">Voltar</Link>
+			<Link to="/softplan">Voltar</Link>
 			<Form country={ data.Details } edit={ edit } />
 		</>
 	);

@@ -15,7 +15,7 @@ export default function Details ({ match }) {
   	if (data.Details.length === 0) {
   		return <Message>
 			Não foi encontrado. Tende novamente. <br />
-			<Link to="/inicio">Voltar</Link>
+			<Link to="/softplan">Voltar</Link>
 		</Message>
   	}
 
@@ -25,7 +25,7 @@ export default function Details ({ match }) {
 	
 	return (
 		<Container>
-			<Link to="/inicio">Voltar</Link>
+			<Link to="/softplan">Voltar</Link>
 			<Flag>
 				<img src={ flag.svgFile } alt={` Bandeira ${ name } `} />
 			</Flag>
@@ -50,7 +50,7 @@ export default function Details ({ match }) {
 					</tr>
 				</tbody>
 			</Table>
-			<Link to={`/editar/${match.params.id}`}>Editar</Link>
+			<Link to={`/softplan/editar/${match.params.id}`}>Editar</Link>
 		</Container>
 	);
 }

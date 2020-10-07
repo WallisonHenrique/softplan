@@ -7,14 +7,9 @@ const cache = new InMemoryCache({
     Query: {
       fields: {
         Countries: {
-          read(_, { variables }) { console.log(variables)
-            return contriesItemsVar().filter(( country ) => {
-              const name = country.nameTranslations[0].value;
-              const contains = name.toLowerCase().indexOf(variables.term.toLowerCase()) >= 0;
-              if ( contains ) {
-                return country;
-              }
-            });
+          read(_, { variables }) {
+            const { term } = variables;
+            return contriesItemsVar().filter(( country ) => country.nameTranslations[0].value.indexOf(term) >= 0 );
           }
         },
         Details: {
