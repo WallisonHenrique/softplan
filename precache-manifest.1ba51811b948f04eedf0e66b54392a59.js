@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e31faef0df4a9db03bfff990486170c7",
+    "revision": "b065f55163446dc1a5a46db147ad441e",
     "url": "/softplan/index.html"
   },
   {
-    "revision": "978726bcaf308e24b061",
+    "revision": "413bfe084f6c41dde7ba",
     "url": "/softplan/static/css/main.76eea258.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/softplan/static/js/2.bdd0426d.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "978726bcaf308e24b061",
-    "url": "/softplan/static/js/main.6dd31ade.chunk.js"
+    "revision": "413bfe084f6c41dde7ba",
+    "url": "/softplan/static/js/main.da1d69ac.chunk.js"
   },
   {
     "revision": "6410588eccf67a794c58",
