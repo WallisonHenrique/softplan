@@ -10,7 +10,10 @@ const cache = new InMemoryCache({
           read(_, { variables }) {
             return contriesItemsVar().filter(( country ) => {
               const name = country.nameTranslations[0].value;
-              return name.toLowerCase().indexOf(variables.term.toLowerCase()) >= 0;
+              const contains = name.toLowerCase().indexOf(variables.term.toLowerCase()) >= 0;
+              if ( contains ) {
+                return country;
+              }
             });
           }
         },
