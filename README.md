@@ -12,7 +12,7 @@ Utilizei a política de campo do estado local do Apollo Client.
 
 ## Como mudei de páginas?
 
-Fiz uso da biblioteca react-router-dom para alterar entre páginas e enviar parametrôs as queries do GraphQL.
+Fiz uso da biblioteca react-router-dom para alterar entre páginas e enviar parãmetros as queries do GraphQL.
 
 ## Fiz testes unitários?
 
