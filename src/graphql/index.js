@@ -2,24 +2,26 @@ import { ApolloClient, InMemoryCache, makeVar } from '@apollo/client';
 
 export const contriesItemsVar = makeVar([]);
 
-const cache = new InMemoryCache({
-  typePolicies: {
-    Query: {
-      fields: {
-        Countries: {
-          read(_, { variables }) {
-            const { term } = variables;
-            return contriesItemsVar().filter(( country ) => country.nameTranslations[0].value.indexOf(term) >= 0 );
-          }
-        },
-        Details: {
-          read(_, { variables }) {
-            return contriesItemsVar().find(( country ) => country._id === variables.id );
-          }
-        }
-      }
-    }
-  }
+export const cache = new InMemoryCache({
+	typePolicies: {
+		Query: {
+			fields: {
+				list: {
+					read(_, { variables }) {
+						return contriesItemsVar().filter( item => {
+							const name = item.nameTranslations[0].value;
+							return name.toLowerCase().indexOf(variables.term.toLowerCase()) >= 0
+						});
+					}
+				},
+				details: {
+					read(_, { variables }) {
+						return contriesItemsVar().find( item => item._id === variables.id );
+					}
+				}
+			}
+		}
+	}
 });
 
 export const client = new ApolloClient({

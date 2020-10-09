@@ -1,9 +1,9 @@
 import { gql } from '@apollo/client';
 
-export const COUNTRIES = gql`
+export const GETDATA = gql`
   query {
     Country {
-      _id,
+       _id,
       capital,
       nameTranslations(filter: { languageCode_in: ["pt"]}) {
         value
@@ -16,19 +16,18 @@ export const COUNTRIES = gql`
       topLevelDomains {
         name
       }
-    } 
+    }
   }
 `;
 
 export const LIST = gql`
-  query {
-    Countries @client
+  query List {
+    list @client
   }
 `;
 
 export const DETAILS = gql`
   query {
-    Details @client
+    details @client
   }
 `;
-

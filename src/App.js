@@ -1,21 +1,20 @@
 import React from 'react';
 import Routes from './routes/Routes';
+import Message from './components/Message/Message';
 
 import { useQuery } from '@apollo/client';
-import { COUNTRIES } from './graphql/queries';
+import { GETDATA } from './graphql/queries';
 import { contriesItemsVar } from './graphql';
 
-function App() {
-	const { loading, error, data } = useQuery(COUNTRIES);
-	
-	if (loading) return <p>Carregando...</p>;
-  	if (error) return <p>Falha :(</p>;
-  	
-	contriesItemsVar(data.Country);
+export default function App() {
+	const { loading, error, data } = useQuery( GETDATA);
 
+	if (loading) return <Message>Carregando...</Message>;
+  	if (error) return <Message>Falha :(</Message>;
+  	if (data.Country.length === 0) return <Message>Não encontrou nenhum resultado.</Message>;
+
+  	contriesItemsVar(data.Country);
 	return (
 		<Routes />
 	);
 }
-
-export default App;

@@ -6,12 +6,13 @@ import Message from '../Message/Message';
 export default function List ({ loading, error, data }) {
 	if (loading) return <Message>Carregando...</Message>;
   	if (error) return <Message>Falha :(</Message>;
-  	if (data.Countries.length === 0) return <Message>Não foi encontrado nenhum país. Tente novamente.</Message>;
+  	if (data === undefined) return <Message>Carregando...</Message>;
+  	if (data.list.length === 0) return <Message>Não foi encontrado nenhum país. Tente novamente.</Message>;
   
 	return (
 		<Container>
 			{
-				data.Countries.map(( country, i ) => 
+				data.list.map(( country, i ) => 
 					<Card key={ i } country={ country } />
 				)
 			}

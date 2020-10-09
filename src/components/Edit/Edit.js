@@ -1,21 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
+
+import { useLazyQuery } from '@apollo/client';
+import { DETAILS } from '../../graphql/queries';
+import { contriesItemsVar } from '../../graphql/index';
 
 import Message from '../Message/Message';
 import Form from '../Form/Form';
 
-import { DETAILS } from '../../graphql/queries';
-import { contriesItemsVar } from '../../graphql/index';
-
 export default function Edit ({ match, history }) {
-	const { loading, error, data } = useQuery(DETAILS, {
-		variables: { id: match.params.id }
-	});
+	const [ getDetails, { error, loading, data }] = useLazyQuery( DETAILS, 
+		{ variables: { id: match.params.id } }
+	);
+
+	useEffect( () => {
+		getDetails();
+	},[]);
 	
 	if (loading) return <Message>Carregando...</Message>;
   	if (error) return <Message>Falha :(</Message>;
-  	if (data.Details.length === 0) {
+  	if (data === undefined) return <Message>Carregando...</Message>;
+  	if (data.details.length === 0) {
   		return <Message>
 			Não foi encontrado. Tende novamente. <br />
 			<Link to="/softplan">Voltar</Link>
@@ -23,20 +28,21 @@ export default function Edit ({ match, history }) {
   	}
 
   	const edit = edited => {
-  		const newList = contriesItemsVar().map( item => {
+  		const newLocalData = contriesItemsVar().map( item => {
   			if ( item._id === edited._id )
   				return edited;
-  			return item; 
+  			return item;
   		});
 
-  		contriesItemsVar([ ...newList ]);
+  		contriesItemsVar([ ...newLocalData ]);
+
   		history.push("/softplan");
   	};
 	
 	return (
 		<>
 			<Link to="/softplan">Voltar</Link>
-			<Form country={ data.Details } edit={ edit } />
+			<Form country={ data.details } edit={ edit } />
 		</>
 	);
 }

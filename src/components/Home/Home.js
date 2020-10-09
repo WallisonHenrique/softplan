@@ -1,20 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Search from '../Search/Search';
 import List from '../List/List';
 
-import { useQuery } from '@apollo/client';
+import { useLazyQuery } from '@apollo/client';
 import { LIST } from '../../graphql/queries';
 
 export default function Home () {
-	const vars = { term: "" };
+	const [ getList, { error, loading, data }] = useLazyQuery( LIST, 
+		{ variables: { term: "" } }
+	);
 
-	const { loading, error, data, refetch } = useQuery(LIST, {
-		variables: vars
-	});
+	useEffect( () => { 
+		getList();
+	},[]);
 
 	const search = term => {
-		vars.term = term;
-		refetch(vars);
+		getList({ variables: { term: term } });
 	};
 
 	return (

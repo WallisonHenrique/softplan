@@ -1,27 +1,34 @@
-import React from 'react';
-import { Container, Flag, Country, Table, THead, Cell } from './styles';
-import { useQuery } from '@apollo/client';
-import { DETAILS } from '../../graphql/queries';
-import Message from '../Message/Message';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+import { Container, Flag, Country, Table, THead, Cell } from './styles';
+import Message from '../Message/Message';
+
+import { useLazyQuery } from '@apollo/client';
+import { DETAILS } from '../../graphql/queries';
+
 export default function Details ({ match }) {
-	const { loading, error, data } = useQuery(DETAILS, {
-		variables: { id: match.params.id }
-	});
+
+	const [ getDetails, { error, loading, data }] = useLazyQuery( DETAILS, 
+		{ variables: { id: match.params.id } }
+	);
+
+	useEffect(() => {
+		getDetails();
+	},[]);
 	
 	if (loading) return <Message>Carregando...</Message>;
   	if (error) return <Message>Falha :(</Message>;
-  	if (data.Details.length === 0) {
+  	if (data === undefined) return <Message>Carregando...</Message>;
+  	if (data.details.length === 0) {
   		return <Message>
 			Não foi encontrado. Tende novamente. <br />
 			<Link to="/softplan">Voltar</Link>
 		</Message>
   	}
 
-  	const country = data.Details;
-	const name = country.nameTranslations[0].value;
-	const { flag, capital, area, population, topLevelDomains } = country;
+	const name = data.details.nameTranslations[0].value;
+	const { flag, capital, area, population, topLevelDomains } = data.details;
 	
 	return (
 		<Container>
@@ -38,7 +45,7 @@ export default function Details ({ match }) {
 					</tr>
 					<tr>
 						<THead>Área</THead>
-						<Cell>{ area }</Cell>
+						<Cell>{ area } km²</Cell>
 					</tr>
 					<tr>
 						<THead>População</THead>
