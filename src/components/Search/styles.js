@@ -1,14 +1,14 @@
 import styles from 'styled-components';
 
 export const Form = styles.form`
-	padding: 10px;
+	padding: 20px 20px 10px;
 `;
 
 export const Input = styles.input`
 	border: 1px solid #ddd;
 	border-radius: 2px;
 	font-size: 14px;
-	height: 36px;
+	height: 40px;
 	padding: 10px;
 	width: 100%;
 `;

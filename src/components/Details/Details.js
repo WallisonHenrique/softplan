@@ -9,8 +9,8 @@ import { DETAILS } from '../../graphql/queries';
 
 export default function Details ({ match }) {
 
-	const [ getDetails, { error, loading, data }] = useLazyQuery( DETAILS, 
-		{ variables: { id: match.params.id } }
+	const [ getDetails, { error, loading, data, networkStatus }] = useLazyQuery( DETAILS, 
+		{ variables: { id: match.params.id }, notifyOnNetworkStatusChange: true }
 	);
 
 	useEffect(() => {
@@ -22,11 +22,11 @@ export default function Details ({ match }) {
   	if (data === undefined) return <Message>Carregando...</Message>;
   	if (data.details.length === 0) {
   		return <Message>
-			Não foi encontrado. Tende novamente. <br />
+			País não encontrado. Tente novamente. <br />
 			<Link to="/softplan">Voltar</Link>
 		</Message>
   	}
-
+  	
 	const name = data.details.nameTranslations[0].value;
 	const { flag, capital, area, population, topLevelDomains } = data.details;
 	

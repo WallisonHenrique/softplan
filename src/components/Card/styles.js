@@ -9,6 +9,7 @@ export const Container = styled.article`
 	}
 
 	a {
+		background-color: #fcfcfc;
 		border: 1px solid #ddd;
 		border-radius: 2px;
 		color: #000;
@@ -19,6 +20,7 @@ export const Container = styled.article`
 `;
 
 export const Flag = styled.img`
+	height: 33px;
 	margin-right: 10px;
 	vertical-align: middle;
 	width: 50px;

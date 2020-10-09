@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react';
-import { Container, Group, Label, Field, Btn } from './styles';
+import { FormContainer, Group, Label, Field, Btn } from './styles';
 
 export default function Form ({ country, edit }) {
 	const name = country.nameTranslations[0].value;
@@ -21,38 +21,31 @@ export default function Form ({ country, edit }) {
 			area: fields.area,
 			population: fields.population
 		};
-
-		event.preventDefault();
 		edit( edited );
+		event.preventDefault();
 	}
 
+	const defaultAttrs = { onChange: change, required: true };
+	const formModel = [
+		{ label: "Bandeira", attrs: { name: "flag", type: "text", value: fields.flag } },
+		{ label: "Nome", attrs: { name: "name", type: "text", value: fields.name } },
+		{ label: "Capital", attrs: { name: "capital", type: "text", value: fields.capital } },
+		{ label: "Área km²", attrs: { name: "area", type: "number", value: fields.area } },
+		{ label: "População", attrs: { name: "population", type: "number", value: fields.population } },
+		{ label: "Domínio de topo", attrs: { name: "topLevelDomains", type: "text", value: fields.topLevelDomains } }
+	];
+
 	return (
-		<Container onSubmit={ submit }>
-			<Group>
-				<Label>Bandeira:</Label>
-				<Field onChange={ change } value={ fields.flag } name="flag" type="text" required />
-			</Group>
-			<Group>
-				<Label>Nome:</Label>
-				<Field onChange={ change } value={ fields.name } name="name" type="text" required />
-			</Group>
-			<Group>
-				<Label>Capital:</Label>
-				<Field onChange={ change } value={ fields.capital } name="capital" type="text" required />
-			</Group>
-			<Group>
-				<Label>Área:</Label>
-				<Field onChange={ change } value={ fields.area } name="area" type="number" required />
-			</Group>
-			<Group>
-				<Label>População:</Label>
-				<Field onChange={ change } value={ fields.population } name="population" type="number" required />
-			</Group>
-			<Group>
-				<Label>Domínio de topo:</Label>
-				<Field onChange={ change } value={ fields.topLevelDomains } name="topLevelDomains" type="text" required />
-			</Group>
+		<FormContainer onSubmit={ submit }>
+			{
+				formModel.map(( item, i ) => 
+					<Group key={i}>
+						<Label>{ item.label }:</Label>
+						<Field { ...item.attrs } { ...defaultAttrs } />
+					</Group>
+				)
+			}
 			<Btn>Salvar</Btn>
-		</Container>
+		</FormContainer>
 	);
 }

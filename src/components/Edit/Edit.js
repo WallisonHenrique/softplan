@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Container } from './styles';
 
 import { useLazyQuery } from '@apollo/client';
 import { DETAILS } from '../../graphql/queries';
@@ -22,7 +23,7 @@ export default function Edit ({ match, history }) {
   	if (data === undefined) return <Message>Carregando...</Message>;
   	if (data.details.length === 0) {
   		return <Message>
-			Não foi encontrado. Tende novamente. <br />
+			País não encontrado. Tente novamente. <br />
 			<Link to="/softplan">Voltar</Link>
 		</Message>
   	}
@@ -40,9 +41,9 @@ export default function Edit ({ match, history }) {
   	};
 	
 	return (
-		<>
+		<Container>
 			<Link to="/softplan">Voltar</Link>
 			<Form country={ data.details } edit={ edit } />
-		</>
+		</Container>
 	);
 }

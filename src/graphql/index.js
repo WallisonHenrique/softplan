@@ -16,7 +16,10 @@ export const cache = new InMemoryCache({
 				},
 				details: {
 					read(_, { variables }) {
-						return contriesItemsVar().find( item => item._id === variables.id );
+						const found = contriesItemsVar().find( item => item._id === variables.id );
+						if (found)
+							return found;
+						return [];
 					}
 				}
 			}

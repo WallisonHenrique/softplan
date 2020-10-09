@@ -11,7 +11,6 @@ export default function App() {
 
 	if (loading) return <Message>Carregando...</Message>;
   	if (error) return <Message>Falha :(</Message>;
-  	if (data.Country.length === 0) return <Message>Não encontrou nenhum resultado.</Message>;
 
   	contriesItemsVar(data.Country);
 	return (
