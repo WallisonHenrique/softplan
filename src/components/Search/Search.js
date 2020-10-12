@@ -12,9 +12,15 @@ export default function Search ({ search }) {
 	}
 
 	return (
-		<Form onSubmit={ submit }>
-			<Label>Pesquisar por país</Label>
-			<Input onChange={ handleChange } type="text" placeholder="Pesquisar por país..." value={ term } />
+		<Form data-testid="search" onSubmit={ submit }>
+			<Label htmlFor="term">Pesquisar por país</Label>
+			<Input
+				onChange={ handleChange } 
+				type="text" 
+				placeholder="Pesquisar por país..."
+				value={ term }
+				id="term"
+			/>
 		</Form>
 	);
 }

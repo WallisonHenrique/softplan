@@ -8,13 +8,12 @@ import { useLazyQuery } from '@apollo/client';
 import { DETAILS } from '../../graphql/queries';
 
 export default function Details ({ match }) {
-
-	const [ getDetails, { error, loading, data, networkStatus }] = useLazyQuery( DETAILS, 
-		{ variables: { id: match.params.id }, notifyOnNetworkStatusChange: true }
+	const [ getList, { error, loading, data }] = useLazyQuery( DETAILS,
+		{ variables: { id: match.params.id } }
 	);
 
 	useEffect(() => {
-		getDetails();
+		getList();
 	},[]);
 	
 	if (loading) return <Message>Carregando...</Message>;
@@ -26,7 +25,7 @@ export default function Details ({ match }) {
 			<Link to="/softplan">Voltar</Link>
 		</Message>
   	}
-  	
+
 	const name = data.details.nameTranslations[0].value;
 	const { flag, capital, area, population, topLevelDomains } = data.details;
 	

@@ -14,6 +14,8 @@ export default function App() {
 
   	contriesItemsVar(data.Country);
 	return (
-		<Routes />
+		<>
+			<Routes />
+		</>
 	);
 }

@@ -10,7 +10,7 @@ export default function List ({ loading, error, data }) {
   	if (data.list.length === 0) return <Message>País não encontrado. Tente novamente.</Message>;
   
 	return (
-		<Container>
+		<Container data-testid="list">
 			{
 				data.list.map(( country, i ) => 
 					<Card key={ i } country={ country } />

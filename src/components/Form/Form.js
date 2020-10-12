@@ -36,12 +36,12 @@ export default function Form ({ country, edit }) {
 	];
 
 	return (
-		<FormContainer onSubmit={ submit }>
+		<FormContainer data-testid="edit" onSubmit={ submit }>
 			{
 				formModel.map(( item, i ) => 
 					<Group key={i}>
-						<Label>{ item.label }:</Label>
-						<Field { ...item.attrs } { ...defaultAttrs } />
+						<Label htmlFor={item.attrs.name}>{ item.label }:</Label>
+						<Field data-testid={`edit-input-${item.attrs.name}`} id={item.attrs.name} { ...item.attrs } { ...defaultAttrs } />
 					</Group>
 				)
 			}

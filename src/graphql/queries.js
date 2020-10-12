@@ -21,13 +21,13 @@ export const GETDATA = gql`
 `;
 
 export const LIST = gql`
-  query List {
+  query {
     list @client
   }
 `;
 
 export const DETAILS = gql`
   query {
-    details @client
+    details
   }
 `;
