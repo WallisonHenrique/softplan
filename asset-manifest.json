@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/softplan/static/css/main.76eea258.chunk.css",
-    "main.js": "/softplan/static/js/main.2d3b4398.chunk.js",
-    "main.js.map": "/softplan/static/js/main.2d3b4398.chunk.js.map",
+    "main.js": "/softplan/static/js/main.e631bb45.chunk.js",
+    "main.js.map": "/softplan/static/js/main.e631bb45.chunk.js.map",
     "runtime-main.js": "/softplan/static/js/runtime-main.22b3e673.js",
     "runtime-main.js.map": "/softplan/static/js/runtime-main.22b3e673.js.map",
     "static/js/2.d6f253ea.chunk.js": "/softplan/static/js/2.d6f253ea.chunk.js",
     "static/js/2.d6f253ea.chunk.js.map": "/softplan/static/js/2.d6f253ea.chunk.js.map",
     "index.html": "/softplan/index.html",
-    "precache-manifest.efe6f7bcc1b1eed12f3e2b78a8c51395.js": "/softplan/precache-manifest.efe6f7bcc1b1eed12f3e2b78a8c51395.js",
+    "precache-manifest.cb1b8c8521f0deaeb8fafeb184990193.js": "/softplan/precache-manifest.cb1b8c8521f0deaeb8fafeb184990193.js",
     "service-worker.js": "/softplan/service-worker.js",
     "static/css/main.76eea258.chunk.css.map": "/softplan/static/css/main.76eea258.chunk.css.map",
     "static/js/2.d6f253ea.chunk.js.LICENSE.txt": "/softplan/static/js/2.d6f253ea.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.22b3e673.js",
     "static/js/2.d6f253ea.chunk.js",
     "static/css/main.76eea258.chunk.css",
-    "static/js/main.2d3b4398.chunk.js"
+    "static/js/main.e631bb45.chunk.js"
   ]
 }
