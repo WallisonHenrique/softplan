@@ -1,3 +1,9 @@
+## Como visualizar o projeto?
+
+Acesse a github page [desafio sofplan](https://WallisonHenrique.github.io/softplan).
+
+https://WallisonHenrique.github.io/softplan
+
 ## Como executar o projeto?
 
 Baixe os arquivos e execute o compando `npm start` na pasta principal do projeto.
@@ -8,15 +14,17 @@ Utilizei o create-react-app para inicializar a codificação.
 
 ## Como gerenciei o estado?
 
-Utilizei a política de campo do estado local do Apollo Client.
+Utilizei a política de campos e a variável reativa do estado local do Apollo Client.
 
-## Como mudei de páginas?
+## Como desenvolvi as mudanças de páginas?
 
 Fiz uso da biblioteca react-router-dom para alterar entre páginas e enviar parãmetros as queries do GraphQL.
 
-## Fiz testes unitários?
+## Como criei os testes?
 
-Infelizmente não. Fiquei sem tempo e não consegui implementá-los.
+Utilizei as bibliotecas Jest e React Testing Library para cobrir 100% do projeto.
+
+Visualize a porcentagem cobrida utilizando o comando `npm run test -- --coverage`.
 
 ## Tem alguma dica ou sugestão?
 
